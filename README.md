@@ -19,7 +19,7 @@ before
 ```
 /cache/tpl_prosilver_viewtopic_body.html.php
 ```
-## Usage:
+## Usage
 Just select text and press quote button.
 
 If you do not select any text, default action will be triggered.
