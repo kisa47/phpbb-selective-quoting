@@ -3,14 +3,15 @@ Selective Quoting mod for phpBB 3.0.12 (Prosilver theme).
 
 ## Modification
 
-### Modify viewtopic_body.html file
+### Modify template file
+```
 /styles/prosilver/template/viewtopic_body.html
-
-Insert below code:
+```
+Insert below code
 ```javascript
 <script type="text/javascript" src="phpbb-selective-quoting.min.js"></script>
 ```
-before:
+before
 ```
 <!-- INCLUDE overall_footer.html -->
 ```
@@ -23,5 +24,5 @@ Just select text and press quote button.
 
 If you do not select any text, default action will be triggered.
 
-## Required phpBB settings:
+## Required phpBB settings
 Quick reply must be enabled.
