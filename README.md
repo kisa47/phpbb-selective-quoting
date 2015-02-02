@@ -1,15 +1,19 @@
 # phpBB Selective Quoting
 Selective Quoting mod for phpBB 3.0.12 (Prosilver theme).
 
-## Modification
+## Manual installation
 
+### Copy phpbb-selective-quoting.min.js to
+```
+/styles/prosilver/template/
+```
 ### Modify template file
 ```
 /styles/prosilver/template/viewtopic_body.html
 ```
 Insert below code
 ```javascript
-<script type="text/javascript" src="phpbb-selective-quoting.min.js"></script>
+<script type="text/javascript" src="/styles/prosilver/template/phpbb-selective-quoting.min.js"></script>
 ```
 before
 ```
@@ -19,6 +23,8 @@ before
 ```
 /cache/tpl_prosilver_viewtopic_body.html.php
 ```
+## Auto installation
+Use AutoMOD and upload .zip package of this project.
 ## Usage
 Just select text and press quote button.
 
