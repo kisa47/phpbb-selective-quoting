@@ -66,7 +66,7 @@
 		<open src="styles/prosilver/template/viewtopic_body.html">
 			<edit>
 				<find><![CDATA[<!-- INCLUDE overall_footer.html -->]]></find>
-				<action type="before-add"><![CDATA[<script type="text/javascript" src="/styles/prosilver/template/phpbb-selective-quoting.min.js"></script>]]></action>
+				<action type="before-add"><![CDATA[<!-- IF S_QUICK_REPLY --><script type="text/javascript" src="/styles/prosilver/template/phpbb-selective-quoting.min.js"></script><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 
