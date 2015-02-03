@@ -1,36 +1,36 @@
-(function() {
+(function(w, d) {
     var clickHandler, editorDiv, msgText, qButtons, len;
 
-    editorDiv = document.getElementById('qr_editor_div');
+    editorDiv = d.getElementById('qr_editor_div');
 
     clickHandler = function(event) {
-	if (window.getSelection) {
-	    var selObj, postBody;
+        if (w.getSelection) {
+            var selObj, postBody;
 
-	    selObj = window.getSelection()
+            selObj = w.getSelection()
 
-	    if (selObj && selObj != '') {
-		event.preventDefault();
+            if (selObj && selObj != '') {
+                event.preventDefault();
 
-		postBody = event.target.parentNode.parentNode.parentNode;
-		author = postBody.querySelectorAll('.author a')[1].innerHTML;
-		q = '[quote="' + author + '"]' + selObj + '[/quote]';
+                postBody = event.target.parentNode.parentNode.parentNode;
+                author = postBody.querySelectorAll('.author a')[1].innerHTML;
+                q = '[quote="' + author + '"]' + selObj + '[/quote]';
 
-		editorDiv.style.display = 'block';
+                editorDiv.style.display = 'block';
 
-		msgText.value = msgText.value + q + "\r\n";
-		msgText.focus();
-	    }
-	}
+                msgText.value = msgText.value + q + "\r\n";
+                msgText.focus();
+            }
+        }
     };
 
     if (editorDiv) {
-	msgText = editorDiv.querySelector('textarea[name="message"]');
-	qButtons = document.querySelectorAll('a[href*="posting.php?mode=quote"]');
-	len = qButtons.length;
+        msgText = editorDiv.querySelector('textarea[name="message"]');
+        qButtons = d.querySelectorAll('a[href*="posting.php?mode=quote"]');
+        len = qButtons.length;
 
-	while (len--) {
-	    qButtons[len].addEventListener('click', clickHandler);
-	}
+        while (len--) {
+            qButtons[len].addEventListener('click', clickHandler);
+        }
     }
-})();
+})(window, document);
