@@ -1,8 +1,8 @@
 (function(w, d) {
     var clickHandler, editorDiv, msgText, qButtons, len;
 
-    editorDiv = d.getElementById('qr_editor_div');
-
+    editorDiv = d.getElementById('qr_postform');
+    
     clickHandler = function(event) {
         if (w.getSelection) {
             var selObj, postBody;
@@ -12,14 +12,17 @@
             if (selObj && selObj != '') {
                 event.preventDefault();
 
-                postBody = event.target.parentNode.parentNode.parentNode;
-                author = postBody.querySelectorAll('.author a')[1].innerHTML;
-                q = '[quote="' + author + '"]' + selObj + '[/quote]';
+                postBody = event.target.parentNode.parentNode.parentNode.parentNode;
+                messageid = postBody.querySelector('.unread').href.match(/\bp=(\d+)\b/)[1];
+                author = postBody.querySelector('.username');
+                username = author.innerHTML;
+                userid = author.href.match(/u=(\d+)/)[1];
 
-                editorDiv.style.display = 'block';
+                q = '[quote="' + username + '"' + ' user_id=' + userid + ' post_id=' + messageid + ']' + selObj + '[/quote]';
 
                 msgText.value = msgText.value + q + "\r\n";
                 msgText.focus();
+                previewButton = document.getElementById('qr_full_editor');
             }
         }
     };
